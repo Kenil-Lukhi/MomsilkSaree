@@ -1,0 +1,360 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="Saree.User.User" %>
+
+<%@ Register Src="~/User/SliderUserControl.ascx" TagPrefix="uc1" TagName="SliderUserControl" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <%--<link rel="shortcut icon" href="../TemplateFile/images/favicon.png" type="">--%>
+    <link rel="icon" href="../TemplateFile/images/2.png" type="image/png">
+
+    <title>Momai Silk</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../TemplateFile/css/bootstrap.css" />
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../TemplateFile/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="../TemplateFile/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../TemplateFile/css/responsive.css" rel="stylesheet" />
+    <script src="../TemplateFile/js/jquery-3.4.1.min.js"></script>
+
+
+    <script>
+        $(function () {
+            var url = window.location.href;
+            $("#navbarSupportedContent a").each(function () {
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .footer_section h4 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer_section p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer_section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .footer_section ul li {
+                margin-bottom: 10px;
+            }
+
+                .footer_section ul li a {
+                    text-decoration: none;
+                }
+
+                    .footer_section ul li a:hover {
+                        text-decoration: none;
+                    }
+
+        .footer_section a {
+            color: white;
+        }
+
+        .copy-right {
+            padding: 20px;
+        }
+
+        .shop-dropdown {
+            background-color: black;
+        }
+
+        .shop-dropdown-Item {
+            color: white;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: black;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <%--<div class="hero_area" style="background-color: black;">
+            <div class="bg-box">
+                <img src="../TemplateFile/images/Saree/bg-3.png" alt="">
+            </div>--%>
+        <!-- header section strats -->
+        <header class="header_section" style="background-color: black;">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="Default.aspx">
+                        <img src="../TemplateFile/images/4.png" alt="Momai Silk Logo" style="height: 40px; margin-right: 10px;">
+                        <%--<span>MOMAI Silk
+                        </span>--%>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  mx-auto ">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Default.aspx">Home </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="Menu.aspx" id="shopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop
+                                </a>
+                                <div class="dropdown-menu shop-dropdown" aria-labelledby="shopDropdown">
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">New Arrival</a>
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">Kanjivaram</a>
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">Digital print</a>
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">Georgette Saree</a>
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">Dola Silk</a>
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">Ready to Wear</a>
+                                    <a class="dropdown-item shop-dropdown-Item" href="Menu.aspx">Banarasi Silk</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="About.aspx">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Contact.aspx">Contact</a>
+                            </li>
+                        </ul>
+                        <div class="user_option">
+                            <asp:LinkButton ID="lbRegisterOrProfile" runat="server" CssClass="user_link" OnClick="lbRegisterOrProfile_Click" CausesValidation="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                            </asp:LinkButton>
+                            <%--<a href="" class="user_link">
+                                </a>--%>
+                            <a class="cart_link" href="Cart.aspx">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background: new 0 0 456.029 456.029;" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                </svg>
+                                <span class="badge rounded-pill bg-warning mb-4">
+                                    <%Response.Write(Session["cartCount"]); %>
+                                </span>
+                            </a>
+                            <div class="form-inline">
+                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <asp:LinkButton ID="lblLoginOrLogout" runat="server" CssClass="order_online" CausesValidation="false" OnClick="lblLoginOrLogout_Click"></asp:LinkButton>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+        <!-- slider section -->
+
+        <!-- end slider section -->
+
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- footer section -->
+        <footer class="footer_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footer-col">
+                        <div class="footer_contact">
+                            <h4>CONTACT US</h4>
+                            <div class="contact_link_box">
+                                <a href="https://www.google.com/maps?q=avadh+textile+market,+saharadarwaja+near+sardar+market+opp,+new+bombay+market-395003" target="_blank">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>7070 TO 7074 7th floor avadh textile market, saharadarwaja near sardar makrket opp, new bombay market-395003</span>
+                                </a>
+                                <a href="tel:+91 9737541361">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>Call 9737541361</span>
+                                </a>
+                                <a href="tel:+91 9925730342">
+                                    <span>9925730342</span>
+                                </a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=momaisilk7073@gmail.com">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>momaisilk7073@gmail.com</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4>MAIN MENU</h4>
+                        <ul>
+                            <li><a href="Menu.aspx">NEW ARRIVAL</a></li>
+                            <li><a href="Menu.aspx">LINEN</a></li>
+                            <li><a href="Menu.aspx">PURE SILK</a></li>
+                            <li><a href="Menu.aspx">KANJIVARAM</a></li>
+                            <li><a href="Menu.aspx">BANARASI</a></li>
+                            <li><a href="Menu.aspx">GAJJI SILK</a></li>
+                            <li><a href="Menu.aspx">ORGANZA</a></li>
+                            <li><a href="Menu.aspx">TRACK ORDER</a></li>
+                        </ul>
+                    </div>
+                    <!-- Information Section -->
+                    <div class="col-md-3">
+                        <h4>INFORMATION</h4>
+                        <ul>
+                            <li><a href="PrivacyPolicy.aspx">Privacy Policy</a></li>
+                            <li><a href="ExchangeReturnRefundPolicy.aspx">Exchange, Return & Refund Policy</a></li>
+                            <li><a href="ShippingPolicy.aspx">Shipping Policy</a></li>
+                            <li><a href="ShippingPolicy.aspx">Terms of Service</a></li>
+                            <li><a href="About.aspx">About Us</a></li>
+                            <li><a href="Contact.aspx">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3 footer-col">
+                        <div class="footer_detail">
+                            <a href="Default.aspx">
+                                <h4>MOMAI SILK</h4>
+                            </a>
+                            <p>
+                                Momai Silk blend tradition and elegance with premium silk, intricate designs, and vibrant colors. Perfect for any occasion, they add timeless sophistication and style to your wardrobe.
+                            </p>
+                        </div>
+                        <h6>Opening Hours</h6>
+                        <p>Everyday</p>
+                        <p>08.00 AM -10.00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer_social">
+                        <a href="#">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/momai.silk_?igsh=MTBpdXhndGZ1NnRtaA==">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://chat.whatsapp.com/ItfIrnbUKfaFumGQRJ7Exw">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-telegram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="copy-right">
+                        &copy; <span id="displayYear"></span>&nbsp; All Rights Reserved By <a href="PrivacyPolicy.aspx">Momai Silk</a><br>
+                    </p>
+                    <div>
+                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard">
+                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="American Express">
+                        <img src="https://img.icons8.com/color/48/000000/discover.png" alt="Discover">
+                        <img src="https://img.icons8.com/color/48/000000/google-pay.png" alt="Google Pay">
+                        <img src="https://img.icons8.com/color/48/000000/apple-pay.png" alt="Apple Pay">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer section -->
+    </form>
+
+    <!-- jQery -->
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script src="../TemplateFile/js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="../TemplateFile/js/custom.js"></script>
+
+
+</body>
+</html>
